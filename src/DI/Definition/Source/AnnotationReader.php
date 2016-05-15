@@ -263,9 +263,6 @@ class AnnotationReader implements DefinitionSource
             return;
         }
 
-        if ($annotation->getScope()) {
-            $definition->setScope($annotation->getScope());
-        }
         if ($annotation->isLazy() !== null) {
             $definition->setLazy($annotation->isLazy());
         }

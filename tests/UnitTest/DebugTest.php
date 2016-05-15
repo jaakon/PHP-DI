@@ -18,7 +18,6 @@ class DebugTest extends \PHPUnit_Framework_TestCase
         $str = <<<'END'
 Object (
     class = #UNKNOWN# foo
-    scope = singleton
     lazy = false
 )
 END;

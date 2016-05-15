@@ -1,5 +1,9 @@
 # Change log
 
+## 6.0
+
+- [#409](https://github.com/PHP-DI/PHP-DI/issues/409): Scopes are removed (by [@mnapoli](https://github.com/mnapoli))
+
 ## 5.3
 
 Read the [news entry](news/19-php-di-5-3-released.md).

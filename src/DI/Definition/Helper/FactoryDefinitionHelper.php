@@ -18,11 +18,6 @@ class FactoryDefinitionHelper implements DefinitionHelper
     private $factory;
 
     /**
-     * @var string|null
-     */
-    private $scope;
-
-    /**
      * @var bool
      */
     private $decorate;
@@ -38,29 +33,15 @@ class FactoryDefinitionHelper implements DefinitionHelper
     }
 
     /**
-     * Defines the scope of the entry.
-     *
-     * @param string $scope
-     *
-     * @return FactoryDefinitionHelper
-     */
-    public function scope($scope)
-    {
-        $this->scope = $scope;
-
-        return $this;
-    }
-
-    /**
      * @param string $entryName Container entry name
      * @return FactoryDefinition
      */
     public function getDefinition($entryName)
     {
         if ($this->decorate) {
-            return new DecoratorDefinition($entryName, $this->factory, $this->scope);
+            return new DecoratorDefinition($entryName, $this->factory);
         }
 
-        return new FactoryDefinition($entryName, $this->factory, $this->scope);
+        return new FactoryDefinition($entryName, $this->factory);
     }
 }

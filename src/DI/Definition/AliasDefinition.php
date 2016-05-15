@@ -2,7 +2,6 @@
 
 namespace DI\Definition;
 
-use DI\Scope;
 use Interop\Container\ContainerInterface;
 
 /**
@@ -40,14 +39,6 @@ class AliasDefinition implements CacheableDefinition, SelfResolvingDefinition
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getScope()
-    {
-        return Scope::PROTOTYPE;
     }
 
     /**

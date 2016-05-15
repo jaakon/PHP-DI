@@ -5,7 +5,6 @@ namespace DI\Definition;
 use DI\Definition\Dumper\ObjectDefinitionDumper;
 use DI\Definition\ObjectDefinition\MethodInjection;
 use DI\Definition\ObjectDefinition\PropertyInjection;
-use DI\Scope;
 use ReflectionClass;
 
 /**
@@ -44,11 +43,6 @@ class ObjectDefinition implements Definition, CacheableDefinition, HasSubDefinit
      * @var MethodInjection[][]
      */
     private $methodInjections = [];
-
-    /**
-     * @var string|null
-     */
-    private $scope;
 
     /**
      * @var bool|null
@@ -174,22 +168,6 @@ class ObjectDefinition implements Definition, CacheableDefinition, HasSubDefinit
     }
 
     /**
-     * @param string $scope
-     */
-    public function setScope($scope)
-    {
-        $this->scope = $scope;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getScope()
-    {
-        return $this->scope ?: Scope::SINGLETON;
-    }
-
-    /**
      * @param bool|null $lazy
      */
     public function setLazy($lazy)
@@ -246,9 +224,6 @@ class ObjectDefinition implements Definition, CacheableDefinition, HasSubDefinit
         // The current prevails
         if ($this->className === null) {
             $this->setClassName($definition->className);
-        }
-        if ($this->scope === null) {
-            $this->scope = $definition->scope;
         }
         if ($this->lazy === null) {
             $this->lazy = $definition->lazy;

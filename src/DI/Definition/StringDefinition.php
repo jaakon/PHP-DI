@@ -3,7 +3,6 @@
 namespace DI\Definition;
 
 use DI\DependencyException;
-use DI\Scope;
 use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\NotFoundException;
 
@@ -42,14 +41,6 @@ class StringDefinition implements Definition, SelfResolvingDefinition
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getScope()
-    {
-        return Scope::SINGLETON;
     }
 
     /**

@@ -1,6 +1,5 @@
 <?php
 
-use DI\Scope;
 use DI\Test\IntegrationTest\Fixtures\Class1;
 use DI\Test\IntegrationTest\Fixtures\Class2;
 use DI\Test\IntegrationTest\Fixtures\Implementation1;
@@ -11,7 +10,6 @@ return [
     'foo' => 'bar',
 
     Class1::class => DI\object()
-            ->scope(Scope::PROTOTYPE)
             ->property('property1', DI\get(Class2::class))
             ->property('property2', DI\get(Interface1::class))
             ->property('property3', DI\get('namedDependency'))
@@ -29,8 +27,7 @@ return [
 
     Implementation1::class => DI\object(),
 
-    Interface1::class => DI\object(Implementation1::class)
-            ->scope(Scope::SINGLETON),
+    Interface1::class => DI\object(Implementation1::class),
     'DI\Test\IntegrationTest\Fixtures\Interface2' => DI\object('DI\Test\IntegrationTest\Fixtures\Class3'),
 
     'namedDependency' => DI\object(Class2::class),
